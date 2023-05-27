@@ -1,5 +1,3 @@
-# Create a function that returns any of the items you can afford in the store with the money you have in your wallet
-
 items_purchase = {
     "water": 2,
     "bread": 4,
