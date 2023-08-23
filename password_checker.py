@@ -5,32 +5,35 @@ password = input("Please enter a password with at least one number, one uppercas
 
 
 def password_checker(pswrd):
-    check = False
+    check = True
     symbols = ["!", "@", "%", "&", "#", ".", "*", "/"]
     
-    if len(pswrd) > 6 or len(pswrd) < 20:
-        check = True
+    if len(pswrd) < 6 or len(pswrd) > 20:
+        check = False
+        print("Your password should be between 6-20 characters")
         
-    if any(char.isdigit() for char in pswrd):
-        check = True
+    if not any(char.isdigit() for char in pswrd):
+        check = False
+        print("Your password should have at least one number")
     
-    elif any(char.lower() for char in pswrd):
-        check = True
+    elif not any(char.lower() for char in pswrd):
+        check = False
+        print("Your password should have at least one lowercase character")
         
-    elif any(char.upper() for char in pswrd):
-        check = True
+    elif not any(char.upper() for char in pswrd):
+        check = False
+        print("Your password should have at least one uppercase character")
         
-    elif any(char in symbols for char in pswrd):
-        check = True
+    
+    elif not any(char in symbols for char in pswrd):
+        check = False
+        print("Your password should have at least one symbol")
         
-    elif check == True:
-        print("Valid password")
-        
-    else:
-        print("Invalid password. You password must be between 6-20 characters long and it should have at least one number, one symbos, one uppercase character and one lowercase character")
+    if check:
+        print("Your password is valid")
         
 
-print(password_checker(password))
+password_checker(password)
     
         
         
